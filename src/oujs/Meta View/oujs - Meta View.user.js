@@ -1,11 +1,12 @@
 // ==UserScript==
 // @name          oujs - Meta View
 // @namespace     https://openuserjs.org/users/Marti
+// @author        Marti Martz <martii@users.noreply.github.com> (https://openuserjs.org/scripts/Marti)
 // @description   Adds a script navigation link next to `Source Code` titled `Meta` and opens a phantom url to show the detected metadata
 // @copyright     2014+, Marti Martz (https://openuserjs.org/users/Marti)
 // @license       CC-BY-NC-SA-4.0; https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
 // @license       GPL-3.0-or-later; http://www.gnu.org/licenses/gpl-3.0.txt
-// @version       4.4.7
+// @version       4.4.10
 // @icon          https://www.gravatar.com/avatar/7ff58eb098c23feafa72e0b4cd13f396?r=G&s=48&default=identicon
 
 // @homepageURL  https://github.com/Martii/UserScripts/tree/master/src/oujs/Meta%20View
@@ -25,8 +26,15 @@
 
 // ==/UserScript==
 
+// ==OpenUserJS==
+// @author Marti
+// ==/OpenUserJS==
+
 /* jshint esversion: 5 */
 /* globals ace */
+
+/* eslint dot-notation: off */
+/* eslint curly: off */
 
 (function() {
   'use strict';
@@ -314,7 +322,7 @@
                         var NodeStyle = document.createElement('style');
                         NodeStyle.setAttribute('type', 'text/css');
                         var min_height = 85.2;
-                        var offset = 306;
+                        var offset = 292;
                         var textSVGMetaJS = 'data:image/svg+xml;base64,' + window.btoa([
                           '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -200 14.482108 52.124682" height="52.12">',
                             '<g fill="#ccc">',
@@ -436,8 +444,9 @@
                         hookNode.appendChild(mdbNodePre);
                         hookNode.appendChild(jsonNodePre);
 
-                        var wrappedNodeInput =  document.createElement('input');
+                        var wrappedNodeInput = document.createElement('input');
                         wrappedNodeInput.classList.add('btn');
+                        wrappedNodeInput.classList.add('btn-sm');
                         wrappedNodeInput.classList.add('btn-success');
                         wrappedNodeInput.id = 'wrap';
                         wrappedNodeInput.setAttribute('value', 'Wrap');
